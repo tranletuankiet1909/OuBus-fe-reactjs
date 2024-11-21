@@ -25,7 +25,7 @@ const RouteList = () => {
 
     const fetchRoutes = async () => {
         try {
-            const response = await axios.get('/routes/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/routes/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }

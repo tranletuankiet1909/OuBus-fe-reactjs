@@ -26,7 +26,7 @@ const ReviewList = () => {
 
     const fetchReviews = async () => {
         try {
-            const response = await axios.get('/reviews/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/reviews/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }

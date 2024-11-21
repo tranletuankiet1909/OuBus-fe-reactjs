@@ -15,7 +15,7 @@ const Review = () => {
             try {
                 const token = localStorage.getItem('access-token');
 
-                const res = await axios.get(`/tickets/${id}/reviews/`, {
+                const res = await axios.get(`https://tltk.pythonanywhere.com/tickets/${id}/reviews/`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -44,7 +44,7 @@ const Review = () => {
             const formData = new FormData();
             formData.append('rating', rating);
             formData.append('content', content);
-            const response = await axios.post(`/tickets/${id}/add-review/`, formData, {
+            const response = await axios.post(`https://tltk.pythonanywhere.com/tickets/${id}/add-review/`, formData, {
                 headers :  {
                     'Authorization': `Bearer ${token}`
                 }
@@ -63,7 +63,7 @@ const Review = () => {
             // const formData = new FormData();
             // formData.append('rating', rating);
             // formData.append('content', content);
-            const response = await axios.get(`/tickets/${id}/reviews/`, {
+            const response = await axios.get(`https://tltk.pythonanywhere.com/tickets/${id}/reviews/`, {
                 headers :  {
                     'Authorization': `Bearer ${token}`
                 }

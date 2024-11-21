@@ -31,7 +31,7 @@ const AddBus = () => {
 
     const fetchStation = async () => {
         try {
-            const response = await axios.get(`/stations/`, {
+            const response = await axios.get(`https://tltk.pythonanywhere.com/stations/`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -70,7 +70,7 @@ const AddBus = () => {
         formData.append('available', busStatus ? 'True' : 'False'); 
         formData.append('image', selectedFile);
         try {
-            await axios.post(`/buses/`, formData, {
+            await axios.post(`https://tltk.pythonanywhere.com/buses/`, formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data',

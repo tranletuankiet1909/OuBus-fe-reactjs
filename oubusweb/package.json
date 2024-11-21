@@ -48,7 +48,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://tltk.pythonanywhere.com/",
   "devDependencies": {
     "react-router-dom": "^6.26.2"
   }

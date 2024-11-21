@@ -64,7 +64,7 @@ const Register = () => {
             formData.append('avatar', avatar)
         }
         try {
-            const response = await axios.post(`/users/`, formData, {
+            const response = await axios.post(`https://tltk.pythonanywhere.com/users/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

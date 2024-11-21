@@ -14,7 +14,7 @@ const PaymentResult = () => {
     useEffect(() => {
         const verifyPayment = async () => {
         try {
-            const response = await axios.get(`/payment-return${location.search}`);
+            const response = await axios.get(`https://tltk.pythonanywhere.com/payment-return${location.search}`);
             if (response.data.status === 'success') {
             setStatus('success');
             setMessage(response.data.message);

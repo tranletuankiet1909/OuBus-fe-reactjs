@@ -21,7 +21,7 @@ const ComboList = () => {
     const fetchStudentCombo = async () => {
         try {
             const token = localStorage.getItem('access-token');
-            const response = await axios.get('/users/combo/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/users/combo/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -35,7 +35,7 @@ const ComboList = () => {
     const fetchCombos = async () => {
         try {
             const token = localStorage.getItem('access-token');
-            const response = await axios.get('/comboes/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/comboes/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -50,7 +50,7 @@ const ComboList = () => {
     const fetchPayMethods = async () => {
         try {
             const token = localStorage.getItem('access-token');
-            const response = await axios.get('/paymethods/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/paymethods/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -70,7 +70,7 @@ const ComboList = () => {
     const handlePayment = async () => {
         try {
             const token = localStorage.getItem('access-token');
-            await axios.post(`/comboes/${selectedComboId}/register-combo/`, {
+            await axios.post(`https://tltk.pythonanywhere.com/comboes/${selectedComboId}/register-combo/`, {
                 payment_method: selectedPayMethod,
             }, {
                 headers: {

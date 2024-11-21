@@ -28,7 +28,7 @@ const ReviewDetail = () => {
 
     const fetchReviewDetail = async () => {
         try {
-            const response = await axios.get(`/reviews/${id}/`, {
+            const response = await axios.get(`https://tltk.pythonanywhere.com/reviews/${id}/`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -45,7 +45,7 @@ const ReviewDetail = () => {
 
     const fetchReply = async () => {
         try {
-            const response = await axios.get('/reviews/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/reviews/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -63,7 +63,7 @@ const ReviewDetail = () => {
 
     const handleReplySubmit = async () => {
         try {
-            await axios.post(`/tickets/${review.ticket.id}/add-review/`, {
+            await axios.post(`https://tltk.pythonanywhere.com/tickets/${review.ticket.id}/add-review/`, {
                 content: replyContent,
                 parent: id,
             }, {
@@ -83,7 +83,7 @@ const ReviewDetail = () => {
     // Xử lý chỉnh sửa phản hồi
     const handleEditSubmit = async () => {
         try {
-            await axios.patch(`/reviews/${reply.id}/`, {
+            await axios.patch(`https://tltk.pythonanywhere.com/reviews/${reply.id}/`, {
                 content: editedContent,
             }, {
                 headers: {

@@ -38,7 +38,7 @@ const EditTrip = () => {
     useEffect(() => {
         const loadTripData = async () => {
             try {
-                const response = await axios.get(`/bustrips/${id}/`);
+                const response = await axios.get(`https://tltk.pythonanywhere.com/bustrips/${id}/`);
                 const trip = response.data;
                 setTripData(trip);
                 setStartTime(new Date(trip.start_time));
@@ -57,9 +57,9 @@ const EditTrip = () => {
         const loadRoutesBusesDrivers = async () => {
             try {
                 const [routesRes, busesRes, driversRes] = await Promise.all([
-                    axios.get('/routes/'),
-                    axios.get('/buses/'),
-                    axios.get('/drivers/')
+                    axios.get('https://tltk.pythonanywhere.com/routes/'),
+                    axios.get('https://tltk.pythonanywhere.com/buses/'),
+                    axios.get('https://tltk.pythonanywhere.com/drivers/')
                 ]);
                 setRoutes(routesRes.data);
                 setBuses(busesRes.data);
@@ -77,7 +77,7 @@ const EditTrip = () => {
         try {
             const token = localStorage.getItem('access-token');
             console.info(token);
-            const response = await axios.get('/drivers/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/drivers/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -93,7 +93,7 @@ const EditTrip = () => {
         try {
             const token = localStorage.getItem('access-token');
             console.info(token);
-            const response = await axios.get('/routes/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/routes/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -109,7 +109,7 @@ const EditTrip = () => {
         try {
             const token = localStorage.getItem('access-token');
             console.info(token);
-            const response = await axios.get('/buses/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/buses/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -135,7 +135,7 @@ const EditTrip = () => {
                 trip_status: statusSelect
             };
 
-            await axios.patch(`/bustrips/${id}/`, updatedTrip, {
+            await axios.patch(`https://tltk.pythonanywhere.com/bustrips/${id}/`, updatedTrip, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }

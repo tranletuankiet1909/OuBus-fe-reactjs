@@ -25,7 +25,7 @@ const BusList = () => {
 
     const fetchBuses = async () => {
         try {
-            const response = await axios.get('/buses/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/buses/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }

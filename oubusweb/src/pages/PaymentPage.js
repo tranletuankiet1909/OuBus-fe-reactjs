@@ -18,7 +18,7 @@ const PaymentPage = () => {
     useEffect(() => {
         const createPayment = async () => {
         try {
-            const response = await axios.post(`/tickets/${id}/create-payment/`, {}, {
+            const response = await axios.post(`https://tltk.pythonanywhere.com/tickets/${id}/create-payment/`, {}, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }

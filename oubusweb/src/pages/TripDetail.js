@@ -22,7 +22,7 @@ const TripDetail = () => {
     useEffect(() => {
         const fetchTrip = async () => {
             try {
-                const res = await axios.get(`/bustrips/${id}/`);
+                const res = await axios.get(`https://tltk.pythonanywhere.com/bustrips/${id}/`);
                 setBustrip(res.data);
             } catch (ex) {
                 setError('Không thể tải thông tin chuyến xe. Vui lòng thử lại sau.');
@@ -33,7 +33,7 @@ const TripDetail = () => {
         fetchTrip();
         const fetchSeats = async () => {
             try {
-                const res = await axios.get(`/bustrips/${id}/seats`); 
+                const res = await axios.get(`https://tltk.pythonanywhere.com/bustrips/${id}/seats`); 
                 setSeats(res.data);
             } catch (ex) {
                 setError('Không thể tải danh sách ghế. Vui lòng thử lại sau.');
@@ -45,7 +45,7 @@ const TripDetail = () => {
         if (userState.user.user.role === 'staff') {
             const fetchStudents = async () => {
                 try {
-                    const res = await axios.get(`/students/`, {
+                    const res = await axios.get(`https://tltk.pythonanywhere.com/students/`, {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }
@@ -85,7 +85,7 @@ const TripDetail = () => {
         }
         console.info(selectedSeat)
         try {
-            const res = await axios.post(`/bustrips/${id}/booking/`, formData , {
+            const res = await axios.post(`https://tltk.pythonanywhere.com/bustrips/${id}/booking/`, formData , {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'

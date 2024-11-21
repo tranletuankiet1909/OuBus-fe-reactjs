@@ -37,7 +37,7 @@ const AddTrip = () => {
         try {
             const token = localStorage.getItem('access-token');
             console.info(token);
-            const response = await axios.get('/drivers/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/drivers/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -53,7 +53,7 @@ const AddTrip = () => {
         try {
             const token = localStorage.getItem('access-token');
             console.info(token);
-            const response = await axios.get('/routes/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/routes/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -69,7 +69,7 @@ const AddTrip = () => {
         try {
             const token = localStorage.getItem('access-token');
             console.info(token);
-            const response = await axios.get('/buses/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/buses/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -100,7 +100,7 @@ const AddTrip = () => {
 
         try {
             const token = localStorage.getItem('access-token');
-            const response = await axios.post('/bustrips/', formData, {
+            const response = await axios.post('https://tltk.pythonanywhere.com/bustrips/', formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }

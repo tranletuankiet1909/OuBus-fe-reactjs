@@ -45,14 +45,14 @@ const Login = () => {
             formData.append('client_secret', 'cfk5v60Jk7m59o91DCTkxTUrzJaB2OB8cktQicgcQSapQe71WO2tB8xV9oAOY3iqinSJRiFqFD2E9VVw4qDVmY9duOmBFGVZJP7dZYA2PTWvOGoaJ5TD6aXfgb0WdgOI')
             formData.append('grant_type', 'password');
 
-            let res = await axios.post(`/o/token/`, formData, {
+            let res = await axios.post(`https://tltk.pythonanywhere.com/o/token/`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 }
             });
             localStorage.setItem('access-token', res.data.access_token);
             setTimeout(async () => {
-                let userRes = await axios.get(`/users/user-profile/`, {
+                let userRes = await axios.get(`https://tltk.pythonanywhere.com/users/user-profile/`, {
                     headers: { Authorization: `Bearer ${res.data.access_token}`}       
                 });
                 

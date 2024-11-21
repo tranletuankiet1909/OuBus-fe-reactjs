@@ -34,14 +34,14 @@ const TicketsList = () => {
     const fetchTickets = async () => {
         try {
             const token = localStorage.getItem('access-token');
-            const response = await axios.get('/users/tickets/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/users/tickets/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
             });
             const ticketsWithInvoiceStatus = await Promise.all(response.data.map(async (ticket) => {
                 try {
-                    const invoiceResponse = await axios.get(`/tickets/${ticket.id}/invoice/`, {
+                    const invoiceResponse = await axios.get(`https://tltk.pythonanywhere.com/tickets/${ticket.id}/invoice/`, {
                         headers: {
                             'Authorization': `Bearer ${token}`,
                         }
@@ -61,7 +61,7 @@ const TicketsList = () => {
     const fetchPaymentMethods = async () => {
         try {
             const token = localStorage.getItem('access-token');
-            const response = await axios.get('/paymethods/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/paymethods/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -94,7 +94,7 @@ const TicketsList = () => {
     const showTicketDetail = async (ticketId) => {
         try {
             const token = localStorage.getItem('access-token');
-            const response = await axios.get(`/tickets/${ticketId}/`, {
+            const response = await axios.get(`https://tltk.pythonanywhere.com/tickets/${ticketId}/`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -138,7 +138,6 @@ const TicketsList = () => {
 
         const isWithinDateRange = (!start || ticketDate >= start) && 
                                 (!end || ticketDate <= end);
-        console.info(startDate)
 
         if (filter === 'unpaid') return !ticket.invoiceExists && isWithinDateRange;
         if (filter === 'paid') return ticket.invoiceExists && isWithinDateRange; 

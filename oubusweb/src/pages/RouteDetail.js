@@ -30,7 +30,7 @@ const RouteDetail = () => {
 
     const fetchStation = async () => {
         try {
-            const response = await axios.get(`/stations/`, {
+            const response = await axios.get(`https://tltk.pythonanywhere.com/stations/`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -44,7 +44,7 @@ const RouteDetail = () => {
 
     const fetchRouteDetail = async () => {
         try {
-            const response = await axios.get(`/routes/${id}/`, {
+            const response = await axios.get(`https://tltk.pythonanywhere.com/routes/${id}/`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -76,7 +76,7 @@ const RouteDetail = () => {
                 starting_point: stationStart,
                 ending_point: stationEnd,
             };
-            await axios.put(`/routes/${id}/`, updatedRoute, {
+            await axios.put(`https://tltk.pythonanywhere.com/routes/${id}/`, updatedRoute, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -91,7 +91,7 @@ const RouteDetail = () => {
     const handleDeleteRoute = async () => {
         if (window.confirm("Bạn có chắc chắn muốn xóa tuyến xe này?")) {
             try {
-                await axios.delete(`/routes/${id}/`, {
+                await axios.delete(`https://tltk.pythonanywhere.com/routes/${id}/`, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     }

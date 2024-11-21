@@ -27,7 +27,7 @@ const AddRoute = () => {
 
     const fetchStations = async () => {
         try {
-            const response = await axios.get(`/stations/`, {
+            const response = await axios.get(`https://tltk.pythonanywhere.com/stations/`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -52,7 +52,7 @@ const AddRoute = () => {
                 starting_point: stationStart,
                 ending_point: stationEnd,
             };
-            await axios.post(`/routes/`, newRoute, {
+            await axios.post(`https://tltk.pythonanywhere.com/routes/`, newRoute, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }

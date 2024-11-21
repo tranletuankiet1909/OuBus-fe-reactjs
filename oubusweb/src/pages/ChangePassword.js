@@ -39,7 +39,7 @@ const ChangePassword = () => {
 
         try {
             const token = localStorage.getItem('access-token');
-            const response = await axios.patch('/users/change-password/', formData, {
+            const response = await axios.patch('https://tltk.pythonanywhere.com/users/change-password/', formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data',

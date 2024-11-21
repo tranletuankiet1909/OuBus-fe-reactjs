@@ -35,7 +35,7 @@ const BusDetail = () => {
 
     const fetchStation = async () => {
         try {
-            const response = await axios.get(`/stations/`, {
+            const response = await axios.get(`https://tltk.pythonanywhere.com/stations/`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }
@@ -49,7 +49,7 @@ const BusDetail = () => {
 
     const fetchBusDetail = async () => {
         try {
-            const response = await axios.get(`/buses/${id}/`, {
+            const response = await axios.get(`https://tltk.pythonanywhere.com/buses/${id}/`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 }

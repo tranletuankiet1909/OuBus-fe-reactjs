@@ -14,7 +14,7 @@ const Profile = () => {
         const fetchUserData = async () => {
             try {
                 const token = localStorage.getItem('access-token');
-                const response = await axios.get('/users/user-profile/', {
+                const response = await axios.get('https://tltk.pythonanywhere.com/users/user-profile/', {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                     }

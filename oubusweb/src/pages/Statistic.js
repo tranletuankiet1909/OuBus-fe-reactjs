@@ -35,7 +35,7 @@ const Statistic = () => {
     const fetchTickets = async () => {
         try {
             const token = localStorage.getItem('access-token');
-            const response = await axios.get('/tickets/get_ticket_per_route/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/tickets/get_ticket_per_route/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },
@@ -59,7 +59,7 @@ const Statistic = () => {
     const fetchReviews = async () => {
         try {
             const token = localStorage.getItem('access-token');
-            const response = await axios.get('/reviews/get_review_by_rating/', {
+            const response = await axios.get('https://tltk.pythonanywhere.com/reviews/get_review_by_rating/', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                 },

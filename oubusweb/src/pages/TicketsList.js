@@ -146,7 +146,7 @@ const TicketsList = () => {
 
     return (
         <Box style={{ margin: 10, marginTop: 20 }}>
-            <Box style={{ display: 'flex', marginRight:40}} justifyContent='space-between'>
+            <Box style={{ display: 'flex', marginRight:40, backgroundColor:'rgb(253 248 230)', padding:'10px', marginBottom: 10}} justifyContent='space-between'>
                 <div style={{ width: '100%', marginRight:5}}>
                     <Typography fontWeight={'bold'}> Trạng thái vé </Typography>
                     <FormControl fullWidth margin="normal" style={{ width: '100%'}}>

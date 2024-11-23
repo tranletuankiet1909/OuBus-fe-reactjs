@@ -9,6 +9,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { vi } from 'date-fns/locale';
 import { format } from 'date-fns';
+import shadows from '@mui/material/styles/shadows';
 
 const Home = () => {
   const [filters, setFilters] = useState({
@@ -122,46 +123,49 @@ const Home = () => {
   };
   return token ? (
     <Box style={{ margin: 10 }}>
-      <Box mt={5} textAlign="center">
-        <Typography variant="h4" color="#02053a" fontWeight="bold">
-          ĐẶT VÉ XE OU BUS
-        </Typography>
-      </Box>
-      <Box mt={2} style={{ display: 'flex' }}>
-        <TextField
-          label="Tìm kiếm chuyến xe...."
-          variant="outlined"
-          sx={{ marginBottom: 2, width: '40%' }}
-          onChange={(e) => debouncedSearch(e.target.value)}
-        />
-        <div style={{ marginLeft: 20, marginRight: 20 }}>
-          <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={vi}>
-            <DatePicker
-              label="Chọn ngày đi"
-              value={filters.selectedDate}
-              onChange={(newValue) => handleInputChange('selectedDate', newValue)}
-              inputFormat="dd/MM/yyyy"
-              renderInput={(params) => <TextField {...params} sx={{ flex: 1 }} />}
-            />
-          </LocalizationProvider>
-        </div>
-        <FormControl style={{ marginRight: 10, width: '35%' }}>
-          <InputLabel id="route-select-label">Chọn Tuyến Xe</InputLabel>
-          <Select
-            labelId="route-select-label"
-            value={filters.routeId}
-            onChange={(e) => handleInputChange('routeId', e.target.value)}
-            label="Chọn Tuyến Xe"
-          >
-            {routes.map((route) => (
-              <MenuItem key={route.id} value={route.id}>
-                {route.route_code}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+      <Box style={{ backgroundColor:'rgb(253 248 230)', padding:'10px', marginBottom: 10 }}>
+        <Box mt={5} textAlign="center">
+          <Typography variant="h4" color="#02053a" fontWeight="bold">
+            ĐẶT VÉ XE OU BUS
+          </Typography>
+        </Box>
+        <Box mt={2} style={{ display: 'flex' }}>
+          <TextField
+            label="Tìm kiếm chuyến xe...."
+            variant="outlined"
+            sx={{ marginBottom: 2, width: '40%' }}
+            onChange={(e) => debouncedSearch(e.target.value)}
+          />
+          <div style={{ marginLeft: 20, marginRight: 20 }}>
+            <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={vi}>
+              <DatePicker
+                label="Chọn ngày đi"
+                value={filters.selectedDate}
+                onChange={(newValue) => handleInputChange('selectedDate', newValue)}
+                inputFormat="dd/MM/yyyy"
+                renderInput={(params) => <TextField {...params} sx={{ flex: 1 }} />}
+              />
+            </LocalizationProvider>
+          </div>
+          <FormControl style={{ marginRight: 10, width: '35%' }}>
+            <InputLabel id="route-select-label">Chọn Tuyến Xe</InputLabel>
+            <Select
+              labelId="route-select-label"
+              value={filters.routeId}
+              onChange={(e) => handleInputChange('routeId', e.target.value)}
+              label="Chọn Tuyến Xe"
+            >
+              {routes.map((route) => (
+                <MenuItem key={route.id} value={route.id}>
+                  {route.route_code}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Box>
       </Box>
 
+    
       <TableContainer component={Paper}>
         <Table>
           <TableHead>

@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';  // Import Outlet để hiển thị 
 import SideMenu from './SideMenu';  
 import './MainLayout.css'; 
 import Header from './Header';
+import { WidthFull } from '@mui/icons-material';
 
 const MainLayout = () => {
     const [isCollapsed, setIsCollapsed] = useState(false);
@@ -18,17 +19,19 @@ const MainLayout = () => {
 
     return (
         <div className="main-layout">
-            <div className="layout-body">
+            <div className={`sidemenu  ${isCollapsed ? 'collapsed' : ''}`}>
                 <SideMenu 
                     isCollapsed={isCollapsed} 
                     toggleCollapse={toggleCollapse} 
                     updateHeaderTitle={updateHeaderTitle} 
                 />  
+            </div>
+            
+            <div className="layout-body">
                 <div className={`content-container ${isCollapsed ? 'collapsed' : ''}`}>
-                    <div style={{ display: 'fixed' }}>
-                        <Header title={headerTitle} />
+                    <div className='header '>
+                        <Header title={headerTitle} style={{ WidthFull }}/>
                     </div>
-                    
                     <div className="main-content">
                         {/* Outlet sẽ hiển thị nội dung của route con */}
                         <Outlet />

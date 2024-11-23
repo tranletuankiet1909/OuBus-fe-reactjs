@@ -279,6 +279,7 @@ const SideMenu = ({ isCollapsed, toggleCollapse, updateHeaderTitle }) => {
                             {!isCollapsed && <span> Đăng ký </span>}
                         </a>
                     </li>
+                    
                 </>}
             </ul>
         </div>

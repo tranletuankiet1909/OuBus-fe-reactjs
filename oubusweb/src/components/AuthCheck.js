@@ -10,13 +10,13 @@ const AuthCheck = ({ children, dispatch }) => {
         try {
             const token = localStorage.getItem('access-token');
             if (!token) {
-                dispatch({ type: 'logout' }); // Đảm bảo rằng `userState.user` được đặt về null
-                navigate('/login/'); // Chuyển hướng đến trang đăng nhập nếu không có token
+                dispatch({ type: 'logout' }); 
+                navigate('/login/'); 
                 return;
             }
             console.info(token);
             if (token) {
-            let userRes = await axios.get(`/users/user-profile/`, {
+            let userRes = await axios.get(`https://tltk.pythonanywhere.com/users/user-profile/`, {
                 headers: { "Authorization": `Bearer ${token}` },
             });
             let userData = userRes.data;

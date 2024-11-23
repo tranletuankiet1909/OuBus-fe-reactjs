@@ -202,7 +202,7 @@ function App() {
       try {
         const token = localStorage.getItem('access-token');
         if (token) {
-          let userRes = await axios.get(`/users/user-profile/`, {
+          let userRes = await axios.get(`https://tltk.pythonanywhere.com/users/user-profile/`, {
             headers: { "Authorization": `Bearer ${token}` },
           });
           let userData = userRes.data;

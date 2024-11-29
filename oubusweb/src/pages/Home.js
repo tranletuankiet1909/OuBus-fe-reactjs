@@ -164,7 +164,14 @@ const Home = () => {
           </FormControl>
         </Box>
       </Box>
-
+      
+      {userState.user.user.role === 'staff' &&
+        <Box style={{ flex:1, display:'flex', justifyContent:'flex-end' }}>
+          <Button onClick={() => navigate('/add-trip/')} style={{ backgroundColor:'green', color:'white', marginTop:5, marginBottom:15, right:0 }}> 
+            <Typography variant='h6'>Thêm chuyến xe</Typography> 
+          </Button>
+        </Box>       
+      }
     
       <TableContainer component={Paper}>
         <Table>
